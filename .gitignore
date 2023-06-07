@@ -1,2 +1,3 @@
 /src/codigo/Directories.java
-/src/codigo/Principal.java
+/src/codigo/AnalisadorLexico.java
+/src/codigo/LexerCup.java
