@@ -1,108 +1,86 @@
 package codigo;
-import static codigo.Tokens.*;
+import static codigo.Token.*;
 %%
-%class Lexer
-%type Tokens
-L=[a-zA-Z_]+
-D=[0-9]+
-espacio=[ ,\t,\r]+
+
+%class AnalisadorLexico
+%type Token
+
+BRANCO = [ |\t|\r]*
+BOOLEAN = "true" | "false"
+CARACTERE = [a-zA-Z]+
+NUMERO = [0-9]+
+
 %{
     public String lexeme;
 %}
+
 %%
+/* Pular linha */
+( "\n" ) {return LINHA;}
+{BRANCO} {/*Ignore*/}
+"//".* {/*Ignore*/}
+"programa" {return PROGRAMA;}
+"utilize" {return UTILIZE;}
+"bibIO" {return BIB_IO;}
+"const" {return CONST;}
+"inicio" {return INICIO;}
+"fim" {return FIM;}
+"inteiro" {return INTEIRO;}
+"real" {return REAL;}
+"caractere" {return CARACTERE;}
+"palavra" {return PALAVRA;}
+"logico" {return LOGICO;}
+"var" {return VAR;}
+"arranjo" {return ARRANJO;}
+"leia" {return LEIA;}
+"leialn" {return LEIA_LN;}
+"escreva" {return ESCREVA;}
+"escrevaln" {return ESCREVA_LN;}
+"se" {return SE;}
+"entao" {return ENTAO;}
+"senao" {return SENAO;}
+"para" {return PARA;}
+"de" {return DE;}
+"ate" {return ATE;}
+"faca" {return FACA;}
+"enquanto" {return ENQUANTO;}
+"repita" {return REPITA;}
+"procedimento" {return PROCEDIMENTO;}
+"funcao" {return FUNCAO;}
+"ou" {return OU;}
+"e" {return E;}
+"nao" {return NAO;}
+"(" {return ABRE_PARENTESES;}
+")" {return FECHA_PARENTESES;}
+"\"" {return ASPAS_DUPLAS;}
+"'" {return ASPAS_SIMPLES;}
+"." {return PONTO;}
+"," {return VIRGULA;}
+"{" {return ABRE_CHAVES;}
+"}" {return FECHA_CHAVES;}
+"[" {return ABRE_COLCHETE;}
+"]" {return FECHA_COLCHETE;}
+">" {return MAIOR;}
+"<" {return MENOR;}
+"<>" {return DIFERENTE;}
+"<=" {return MENOR_IGUAL;}
+">=" {return MAIOR_IGUAL;}
+" \%" {return RESTO_DIVISAO;}
+"^" {return POTENCIA;}
+"=" {return ATRIBUICAO;}
+"==" {return IGUALDADE;}
+"+" {return SOMA;}
+"*" {return MULTIPLICACAO;}
+"-" {return SUBTRACAO;}
+"/" {return DIVISAO;}
 
-/* Espacios en blanco */
-{espacio} {/*Ignore*/}
+[+-]?|{NUMERO}+{CARACTERE}+ {lexeme=yytext(); return ID_INVALIDO;}
+{CARACTERE}({CARACTERE}|{NUMERO})* {lexeme=yytext(); return ID;}
+([+-]?|{NUMERO}) {lexeme=yytext(); return INTEIRO;}
+\"{CARACTERE}({CARACTERE}|{NUMERO})*"\"" {lexeme=yytext(); return PALAVRA;}
+"\'"{CARACTERE}"\'" {lexeme=yytext(); return CARACTERE;}
+{CARACTERE}({CARACTERE}|{NUMERO})* {lexeme=yytext(); return ID;}
+[+-]?|{NUMERO}+"."{NUMERO}+ {lexeme=yytext(); return REAL;}
+[+-]?|{NUMERO}+ {lexeme=yytext(); return INTEIRO;}
 
-/* Comentarios */
-( "//"(.)* ) {/*Ignore*/}
-
-/* Salto de linea */
-( "\n" ) {return Linea;}
-
-/* Comillas */
-( "\"" ) {lexeme=yytext(); return Comillas;}
-
-/* Tipos de datos */
-( byte | int | char | long | float | double ) {lexeme=yytext(); return T_dato;}
-
-/* Tipo de dato String */
-( String ) {lexeme=yytext(); return Cadena;}
-
-/* Palabra reservada If */
-( if ) {lexeme=yytext(); return If;}
-
-/* Palabra reservada Else */
-( else ) {lexeme=yytext(); return Else;}
-
-/* Palabra reservada Do */
-( do ) {lexeme=yytext(); return Do;}
-
-/* Palabra reservada While */
-( while ) {lexeme=yytext(); return While;}
-
-/* Palabra reservada For */
-( for ) {lexeme=yytext(); return For;}
-
-/* Operador Igual */
-( "=" ) {lexeme=yytext(); return Igual;}
-
-/* Operador Suma */
-( "+" ) {lexeme=yytext(); return Suma;}
-
-/* Operador Resta */
-( "-" ) {lexeme=yytext(); return Resta;}
-
-/* Operador Multiplicacion */
-( "*" ) {lexeme=yytext(); return Multiplicacion;}
-
-/* Operador Division */
-( "/" ) {lexeme=yytext(); return Division;}
-
-/* Operadores logicos */
-( "&&" | "||" | "!" | "&" | "|" ) {lexeme=yytext(); return Op_logico;}
-
-/*Operadores Relacionales */
-( ">" | "<" | "==" | "!=" | ">=" | "<=" | "<<" | ">>" ) {lexeme = yytext(); return Op_relacional;}
-
-/* Operadores Atribucion */
-( "+=" | "-="  | "*=" | "/=" | "%=" ) {lexeme = yytext(); return Op_atribucion;}
-
-/* Operadores Incremento y decremento */
-( "++" | "--" ) {lexeme = yytext(); return Op_incremento;}
-
-/*Operadores Booleanos*/
-(true | false)      {lexeme = yytext(); return Op_booleano;}
-
-/* Parentesis de apertura */
-( "(" ) {lexeme=yytext(); return Parentesis_a;}
-
-/* Parentesis de cierre */
-( ")" ) {lexeme=yytext(); return Parentesis_c;}
-
-/* Llave de apertura */
-( "{" ) {lexeme=yytext(); return Llave_a;}
-
-/* Llave de cierre */
-( "}" ) {lexeme=yytext(); return Llave_c;}
-
-/* Corchete de apertura */
-( "[" ) {lexeme = yytext(); return Corchete_a;}
-
-/* Corchete de cierre */
-( "]" ) {lexeme = yytext(); return Corchete_c;}
-
-/* Marcador de inicio de algoritmo */
-( "main" ) {lexeme=yytext(); return Main;}
-
-/* Punto y coma */
-( ";" ) {lexeme=yytext(); return P_coma;}
-
-/* Identificador */
-{L}({L}|{D})* {lexeme=yytext(); return Identificador;}
-
-/* Numero */
-("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
-
-/* Error de analisis */
- . {return ERROR;}
+.  {lexeme=yytext(); return ERRO;}

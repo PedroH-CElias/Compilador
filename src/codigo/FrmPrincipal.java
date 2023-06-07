@@ -37,7 +37,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         String expr = (String) txtResultado.getText();
         AnalisadorLexico lexer = new AnalisadorLexico(new StringReader(expr));
-        String resultado = "LINEA " + cont + "\t\tSIMBOLO\n";
+        String resultado = "LINHA " + cont + "\t\tSIMBOLO\n";
         while (true) {
             Token token = lexer.yylex();
             if (token == null) {

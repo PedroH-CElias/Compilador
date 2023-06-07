@@ -5,7 +5,7 @@ import static codigo.Token.*;
 %class AnalisadorLexico
 %type Token
 
-BRANCO = [ |\n|\t|\r]*
+BRANCO = [ |\t|\r]*
 BOOLEAN = "true" | "false"
 CARACTERE = [a-zA-Z]+
 NUMERO = [0-9]+
@@ -15,6 +15,8 @@ NUMERO = [0-9]+
 %}
 
 %%
+/* Pular linha */
+( "\n" ) {return LINHA;}
 {BRANCO} {/*Ignore*/}
 "//".* {/*Ignore*/}
 "programa" {return PROGRAMA;}
