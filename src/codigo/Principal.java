@@ -17,9 +17,9 @@ import java.nio.file.Paths;
  */
 public class Principal {
     public static void main(String[] args) throws Exception {
-        String ruta1 = "/home/dioneja/workspace/AnalizadorLexico/src/codigo/Lexer.flex";
-        String ruta2 = "/home/dioneja/workspace/AnalizadorLexico/src/codigo/LexerCup.flex";
-        String[] rutaS = {"-parser", "Sintax", "/home/dioneja/workspace/AnalizadorLexico/src/codigo/Sintax.cup"};
+        String ruta1 = Directories.LEXER_PATH;
+        String ruta2 = Directories.SIMPLIFIED_LEXER_CUP_PATH;
+        String[] rutaS = {"-parser", "Sintax", Directories.SYNTAX_PATH};
         generar(ruta1, ruta2, rutaS);
     }
     public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
@@ -30,21 +30,21 @@ public class Principal {
         JFlex.Main.generate(archivo);
         java_cup.Main.main(rutaS);
         
-        Path rutaSym = Paths.get("/home/dioneja/workspace/AnalizadorLexico/src/codigo/sym.java");
+        Path rutaSym = Paths.get(Directories.SYM_PATH);
         if (Files.exists(rutaSym)) {
             Files.delete(rutaSym);
         }
         Files.move(
-                Paths.get("/home/dioneja/workspace/AnalizadorLexico/sym.java"),
-                Paths.get("/home/dioneja/workspace/AnalizadorLexico/src/codigo/sym.java")
+                Paths.get(Directories.SIMPLIFIED_SYM_PATH),
+                Paths.get(Directories.SYM_PATH)
         );
-        Path rutaSin = Paths.get("/home/dioneja/workspace/AnalizadorLexico/src/codigo/Sintax.java");
+        Path rutaSin = Paths.get(Directories.SYNTAX_PATH);
         if (Files.exists(rutaSin)) {
             Files.delete(rutaSin);
         }
         Files.move(
-                Paths.get("/home/dioneja/workspace/AnalizadorLexico/Sintax.java"),
-                Paths.get("/home/dioneja/workspace/AnalizadorLexico/src/codigo/Sintax.java")
+                Paths.get(Directories.SIMPLIFIED_SYNTAX_PATH),
+                Paths.get(Directories.SYNTAX_PATH)
         );
     }
 }
