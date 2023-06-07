@@ -56,10 +56,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "ERRO \t\t" + lexer.lexeme + "\n";
                     break;
                 case PROGRAMA:
-                    resultado += "PROGRAMA \t" + lexer.lexeme + "\n";
+                    resultado += "PROGRAMA \t\t" + lexer.lexeme + "\n";
                     break;
                 case UTILIZE:
-                    resultado += "UTILIZE \t" + lexer.lexeme + "\n";
+                    resultado += "UTILIZE \t\t" + lexer.lexeme + "\n";
                     break;
                 case BIB_IO:
                     resultado += "BIB_IO \t\t" + lexer.lexeme + "\n";
@@ -74,16 +74,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "FIM \t\t" + lexer.lexeme + "\n";
                     break;
                 case INTEIRO:
-                    resultado += "INTEIRO \t" + lexer.lexeme + "\n";
+                    resultado += "INTEIRO \t\t" + lexer.lexeme + "\n";
                     break;
                 case REAL:
                     resultado += "REAL \t\t" + lexer.lexeme + "\n";
                     break;
                 case CARACTERE:
-                    resultado += "CARACTERE \t" + lexer.lexeme + "\n";
+                    resultado += "CARACTERE \t\t" + lexer.lexeme + "\n";
                     break;
                 case PALAVRA:
-                    resultado += "PALAVRA \t" + lexer.lexeme + "\n";
+                    resultado += "PALAVRA \t\t" + lexer.lexeme + "\n";
                     break;
                 case LOGICO:
                     resultado += "LOGICO \t\t" + lexer.lexeme + "\n";
@@ -92,19 +92,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "VAR \t\t" + lexer.lexeme + "\n";
                     break;
                 case ARRANJO:
-                    resultado += "ARRANJO \t" + lexer.lexeme + "\n";
+                    resultado += "ARRANJO \t\t" + lexer.lexeme + "\n";
                     break;
                 case LEIA:
                     resultado += "LEIA \t\t" + lexer.lexeme + "\n";
                     break;
                 case LEIA_LN:
-                    resultado += "LEIA_LN \t" + lexer.lexeme + "\n";
+                    resultado += "LEIA_LN \t\t" + lexer.lexeme + "\n";
                     break;
                 case ESCREVA:
-                    resultado += "ESCREVA \t" + lexer.lexeme + "\n";
+                    resultado += "ESCREVA \t\t" + lexer.lexeme + "\n";
                     break;
                 case ESCREVA_LN:
-                    resultado += "ESCREVA_LN \t" + lexer.lexeme + "\n";
+                    resultado += "ESCREVA_LN \t\t" + lexer.lexeme + "\n";
                     break;
                 case SE:
                     resultado += "SE \t\t" + lexer.lexeme + "\n";
@@ -128,13 +128,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "FACA \t\t" + lexer.lexeme + "\n";
                     break;
                 case ENQUANTO:
-                    resultado += "ENQUANTO \t" + lexer.lexeme + "\n";
+                    resultado += "ENQUANTO \t\t" + lexer.lexeme + "\n";
                     break;
                 case REPITA:
                     resultado += "REPITA \t\t" + lexer.lexeme + "\n";
                     break;
                 case PROCEDIMENTO:
-                    resultado += "PROCEDIMENTO \t" + lexer.lexeme + "\n";
+                    resultado += "PROCEDIMENTO \t\t" + lexer.lexeme + "\n";
                     break;
                 case FUNCAO:
                     resultado += "FUNCAO \t\t" + lexer.lexeme + "\n";
@@ -149,34 +149,34 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "NAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case ABRE_PARENTESES:
-                    resultado += "ABRE_PARENTESES \t" + lexer.lexeme + "\n";
+                    resultado += "ABRE_PARENTESES \t\t" + lexer.lexeme + "\n";
                     break;
                 case FECHA_PARENTESES:
-                    resultado += "FECHA_PARENTESES \t" + lexer.lexeme + "\n";
+                    resultado += "FECHA_PARENTESES \t\t" + lexer.lexeme + "\n";
                     break;
                 case ASPAS_DUPLAS:
-                    resultado += "ASPAS_DUPLAS \t" + lexer.lexeme + "\n";
+                    resultado += "ASPAS_DUPLAS \t\t" + lexer.lexeme + "\n";
                     break;
                 case ASPAS_SIMPLES:
-                    resultado += "ASPAS_SIMPLES \t" + lexer.lexeme + "\n";
+                    resultado += "ASPAS_SIMPLES \t\t" + lexer.lexeme + "\n";
                     break;
                 case PONTO:
                     resultado += "PONTO \t\t" + lexer.lexeme + "\n";
                     break;
                 case VIRGULA:
-                    resultado += "VIRGULA \t" + lexer.lexeme + "\n";
+                    resultado += "VIRGULA \t\t" + lexer.lexeme + "\n";
                     break;
                 case ABRE_CHAVES:
-                    resultado += "ABRE_CHAVES \t" + lexer.lexeme + "\n";
+                    resultado += "ABRE_CHAVES \t\t" + lexer.lexeme + "\n";
                     break;
                 case FECHA_CHAVES:
-                    resultado += "FECHA_CHAVES \t" + lexer.lexeme + "\n";
+                    resultado += "FECHA_CHAVES \t\t" + lexer.lexeme + "\n";
                     break;
                 case ABRE_COLCHETE:
-                    resultado += "ABRE_COLCHETE \t" + lexer.lexeme + "\n";
+                    resultado += "ABRE_COLCHETE \t\t" + lexer.lexeme + "\n";
                     break;
                 case FECHA_COLCHETE:
-                    resultado += "FECHA_COLCHETE \t" + lexer.lexeme + "\n";
+                    resultado += "FECHA_COLCHETE \t\t" + lexer.lexeme + "\n";
                     break;
                 case MAIOR:
                     resultado += "MAIOR \t\t" + lexer.lexeme + "\n";
@@ -185,37 +185,37 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "MENOR \t\t" + lexer.lexeme + "\n";
                     break;
                 case DIFERENTE:
-                    resultado += "DIFERENTE \t" + lexer.lexeme + "\n";
+                    resultado += "DIFERENTE \t\t" + lexer.lexeme + "\n";
                     break;
                 case MENOR_IGUAL:
-                    resultado += "MENOR_IGUAL \t" + lexer.lexeme + "\n";
+                    resultado += "MENOR_IGUAL \t\t" + lexer.lexeme + "\n";
                     break;
                 case MAIOR_IGUAL:
-                    resultado += "MAIOR_IGUAL \t" + lexer.lexeme + "\n";
+                    resultado += "MAIOR_IGUAL \t\t" + lexer.lexeme + "\n";
                     break;
                 case RESTO_DIVISAO:
-                    resultado += "RESTO_DIVISAO \t" + lexer.lexeme + "\n";
+                    resultado += "RESTO_DIVISAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case POTENCIA:
-                    resultado += "POTENCIA \t" + lexer.lexeme + "\n";
+                    resultado += "POTENCIA \t\t" + lexer.lexeme + "\n";
                     break;
                 case ATRIBUICAO:
-                    resultado += "ATRIBUICAO \t" + lexer.lexeme + "\n";
+                    resultado += "ATRIBUICAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case IGUALDADE:
-                    resultado += "IGUALDADE \t" + lexer.lexeme + "\n";
+                    resultado += "IGUALDADE \t\t" + lexer.lexeme + "\n";
                     break;
                 case SOMA:
                     resultado += "SOMA \t\t" + lexer.lexeme + "\n";
                     break;
                 case MULTIPLICACAO:
-                    resultado += "MULTIPLICACAO \t" + lexer.lexeme + "\n";
+                    resultado += "MULTIPLICACAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case SUBTRACAO:
-                    resultado += "SUBTRACAO \t" + lexer.lexeme + "\n";
+                    resultado += "SUBTRACAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case DIVISAO:
-                    resultado += "DIVISAO \t" + lexer.lexeme + "\n";
+                    resultado += "DIVISAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case ID:
                     resultado += "ID \t\t" + lexer.lexeme + "\n";
