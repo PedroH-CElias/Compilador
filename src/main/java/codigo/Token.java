@@ -1,0 +1,71 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
+ */
+package codigo;
+
+/**
+ *
+ * @author Bruno
+ */
+public enum Token {
+    LINHA,
+    ID_INVALIDO,
+    ERRO,
+    PROGRAMA,
+    UTILIZE,
+    BIB_IO,
+    CONST,
+    INICIO,
+    FIM,
+    INTEIRO,
+    REAL,
+    CARACTERE,
+    PALAVRA,
+    LOGICO,
+    VAR,
+    ARRANJO,
+    LEIA,
+    LEIA_LN,
+    ESCREVA,
+    ESCREVA_LN,
+    SE,
+    ENTAO,
+    SENAO,
+    PARA,
+    DE,
+    ATE,
+    FACA,
+    ENQUANTO,
+    REPITA,
+    PROCEDIMENTO,
+    FUNCAO,
+    OU,
+    E,
+    NAO,
+    ABRE_PARENTESES,
+    FECHA_PARENTESES,
+    ASPAS_DUPLAS,
+    ASPAS_SIMPLES,
+    PONTO,
+    VIRGULA,
+    ABRE_CHAVES,
+    FECHA_CHAVES,
+    ABRE_COLCHETE,
+    FECHA_COLCHETE,
+    MAIOR,
+    MENOR,
+    DIFERENTE,
+    MENOR_IGUAL,
+    MAIOR_IGUAL,
+    RESTO_DIVISAO,
+    POTENCIA,
+    ATRIBUICAO,
+    IGUALDADE,
+    SOMA,
+    MULTIPLICACAO,
+    SUBTRACAO,
+    DIVISAO,
+    ID,
+    BRANCO
+}
