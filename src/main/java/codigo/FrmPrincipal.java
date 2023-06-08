@@ -223,6 +223,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case BRANCO:
                     resultado += "BRANCO \t\t" + lexer.lexeme + "\n";
                     break;
+                case PONTO_VIRGULA:
+                    resultado += "PONTO_VIRGULA \t" + lexer.lexeme + "\n";
+                    break;
                 default:
                     resultado += "Token desconhecido: " + lexer.lexeme + "\n";
                     break;
