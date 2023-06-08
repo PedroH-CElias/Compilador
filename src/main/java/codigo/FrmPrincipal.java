@@ -35,7 +35,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void analizarLexico() throws IOException{
         int cont = 1;
         
-        String expr = (String) txtResultado.getText();
+        String expr = txtResultado.getText();
         AnalisadorLexico lexer = new AnalisadorLexico(new StringReader(expr));
         String resultado = "LINHA " + cont + "\t\tSIMBOLO\n";
         while (true) {
@@ -47,7 +47,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             switch (token) {
                 case LINHA:
                     cont++;
-                    resultado += "LINHA " + cont + "\n";
+                    resultado += "\n\nLINHA " + cont + "\n";
                     break;
                 case ID_INVALIDO:
                     resultado += "  <Comillas>\t\t" + lexer.lexeme + "\n";
@@ -149,10 +149,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "NAO \t\t" + lexer.lexeme + "\n";
                     break;
                 case ABRE_PARENTESES:
-                    resultado += "ABRE_PARENTESES \t\t" + lexer.lexeme + "\n";
+                    resultado += "ABRE_PARENTESES \t" + lexer.lexeme + "\n";
                     break;
                 case FECHA_PARENTESES:
-                    resultado += "FECHA_PARENTESES \t\t" + lexer.lexeme + "\n";
+                    resultado += "FECHA_PARENTESES \t" + lexer.lexeme + "\n";
                     break;
                 case ASPAS_DUPLAS:
                     resultado += "ASPAS_DUPLAS \t\t" + lexer.lexeme + "\n";
@@ -167,16 +167,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "VIRGULA \t\t" + lexer.lexeme + "\n";
                     break;
                 case ABRE_CHAVES:
-                    resultado += "ABRE_CHAVES \t\t" + lexer.lexeme + "\n";
+                    resultado += "ABRE_CHAVES \t" + lexer.lexeme + "\n";
                     break;
                 case FECHA_CHAVES:
-                    resultado += "FECHA_CHAVES \t\t" + lexer.lexeme + "\n";
+                    resultado += "FECHA_CHAVES \t" + lexer.lexeme + "\n";
                     break;
                 case ABRE_COLCHETE:
-                    resultado += "ABRE_COLCHETE \t\t" + lexer.lexeme + "\n";
+                    resultado += "ABRE_COLCHETE \t" + lexer.lexeme + "\n";
                     break;
                 case FECHA_COLCHETE:
-                    resultado += "FECHA_COLCHETE \t\t" + lexer.lexeme + "\n";
+                    resultado += "FECHA_COLCHETE \t" + lexer.lexeme + "\n";
                     break;
                 case MAIOR:
                     resultado += "MAIOR \t\t" + lexer.lexeme + "\n";
@@ -258,7 +258,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analizador Lexico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 
         btnArchivo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnArchivo.setText("Abrir archivo");
+        btnArchivo.setText("Abrir arquivo");
         btnArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnArchivoActionPerformed(evt);
@@ -274,16 +274,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtAnalizarLex.setRows(5);
         jScrollPane2.setViewportView(txtAnalizarLex);
 
-        btnAnalizarLex.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnAnalizarLex.setText("Analizar");
+        btnAnalizarLex.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnAnalizarLex.setText("Analisar");
         btnAnalizarLex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnalizarLexActionPerformed(evt);
             }
         });
 
-        btnLimpiarLex.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLimpiarLex.setText("Limpiar");
+        btnLimpiarLex.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnLimpiarLex.setText("Limpar");
         btnLimpiarLex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarLexActionPerformed(evt);
@@ -325,23 +325,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analizador Sintactico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analisador Sintático", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 
         txtAnalizarSin.setEditable(false);
         txtAnalizarSin.setColumns(20);
         txtAnalizarSin.setRows(5);
         jScrollPane3.setViewportView(txtAnalizarSin);
 
-        btnAnalizarSin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnAnalizarSin.setText("Analizar");
+        btnAnalizarSin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnAnalizarSin.setText("Analisar");
         btnAnalizarSin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnalizarSinActionPerformed(evt);
             }
         });
 
-        btnLimpiarSin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLimpiarSin.setText("Limpiar");
+        btnLimpiarSin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnLimpiarSin.setText("Limpar");
         btnLimpiarSin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarSinActionPerformed(evt);
@@ -395,10 +395,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
-        File archivo = new File(chooser.getSelectedFile().getAbsolutePath());
+        File arquivo = new File(chooser.getSelectedFile().getAbsolutePath());
         
         try {
-            String ST = new String(Files.readAllBytes(archivo.toPath()));
+            String ST = new String(Files.readAllBytes(arquivo.toPath()));
             txtResultado.setText(ST);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
@@ -432,11 +432,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         try {
             s.parse();
-            txtAnalizarSin.setText("Analisis realizado correctamente");
+            txtAnalizarSin.setText("Analise realizada com sucesso!");
             txtAnalizarSin.setForeground(new Color(25, 111, 61));
         } catch (Exception ex) {
             Symbol sym = s.getS();
-            txtAnalizarSin.setText("Error de sintaxis. Linea: " + (sym.right + 1) + " Columna: " + (sym.left + 1) + ", Texto: \"" + sym.value + "\"");
+            txtAnalizarSin.setText("Erro de sintaxe -> Linha: " + (sym.right + 1) + " Coluna: " + (sym.left + 1) + ", Texto: \"" + sym.value + "\"");
             txtAnalizarSin.setForeground(Color.red);
         }
     }//GEN-LAST:event_btnAnalizarSinActionPerformed

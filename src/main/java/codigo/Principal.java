@@ -17,30 +17,30 @@ import java.nio.file.Paths;
  */
 public class Principal {
     public static void main(String[] args) throws Exception {
-        String ruta1 = Directories.LEXER_PATH;
-        String ruta2 = Directories.SIMPLIFIED_LEXER_CUP_PATH;
-        String[] rutaS = {"-parser", "Sintax", Directories.SYNTAX_PATH};
-        generar(ruta1, ruta2, rutaS);
+        String route1 = Directories.LEXER_PATH;
+        String route2 = Directories.SIMPLIFIED_LEXER_CUP_PATH;
+        String[] routeS = {"-parser", "Sintax", Directories.SYNTAX_PATH};
+        generar(route1, route2, routeS);
     }
-    public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
+    public static void generar(String route1, String route2, String[] routeS) throws IOException, Exception{
         File archivo;
-        archivo = new File(ruta1);
+        archivo = new File(route1);
         jflex.Main.generate(archivo);
-        archivo = new File(ruta2);
+        archivo = new File(route2);
         jflex.Main.generate(archivo);
-        java_cup.Main.main(rutaS);
+        java_cup.Main.main(routeS);
         
-        Path rutaSym = Paths.get(Directories.SYM_PATH);
-        if (Files.exists(rutaSym)) {
-            Files.delete(rutaSym);
+        Path routeSym = Paths.get(Directories.SYM_PATH);
+        if (Files.exists(routeSym)) {
+            Files.delete(routeSym);
         }
         Files.move(
                 Paths.get(Directories.SIMPLIFIED_SYM_PATH),
                 Paths.get(Directories.SYM_PATH)
         );
-        Path rutaSin = Paths.get(Directories.SYNTAX_PATH);
-        if (Files.exists(rutaSin)) {
-            Files.delete(rutaSin);
+        Path routeSyntax = Paths.get(Directories.SYNTAX_PATH);
+        if (Files.exists(routeSyntax)) {
+            Files.delete(routeSyntax);
         }
         Files.move(
                 Paths.get(Directories.SIMPLIFIED_SYNTAX_PATH),

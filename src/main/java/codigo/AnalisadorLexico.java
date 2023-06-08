@@ -59,12 +59,12 @@ class AnalisadorLexico {
     "\1\25\1\26\1\27\1\30\13\3\1\31\1\32\1\0"+
     "\1\1\2\3\1\33\6\3\1\34\2\0\1\35\1\36"+
     "\1\37\1\40\1\41\10\3\1\42\1\43\4\3\1\44"+
-    "\10\3\1\45\1\46\1\47\1\50\1\51\6\3\1\52"+
-    "\1\3\1\53\4\3\1\54\11\3\1\55\5\3\1\56"+
-    "\5\3\1\57\1\3\1\60\1\61\3\3\1\62\1\3"+
-    "\1\63\1\64\4\3\1\65\1\3\1\66\1\67\1\3"+
-    "\1\70\2\3\1\71\1\72\2\3\1\73\1\74\2\3"+
-    "\1\75\1\3\1\76\2\3\1\77";
+    "\10\3\1\45\1\46\1\47\1\50\1\44\6\3\1\51"+
+    "\1\3\1\52\4\3\1\53\11\3\1\54\5\3\1\55"+
+    "\5\3\1\56\1\3\1\57\1\60\3\3\1\61\1\3"+
+    "\1\62\1\63\4\3\1\64\1\3\1\65\1\66\1\3"+
+    "\1\67\2\3\1\47\1\5\2\3\1\70\1\71\2\3"+
+    "\1\72\1\3\1\50\2\3\1\73";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[172];
@@ -678,317 +678,297 @@ class AnalisadorLexico {
             { /*Ignore*/
             } 
             // fall through
-          case 64: break;
+          case 60: break;
           case 2: 
             { lexeme=yytext(); return ERRO;
             } 
             // fall through
-          case 65: break;
+          case 61: break;
           case 3: 
             { lexeme=yytext(); return ID;
             } 
             // fall through
-          case 66: break;
+          case 62: break;
           case 4: 
-            { return E;
+            { lexeme=yytext(); return E;
             } 
             // fall through
-          case 67: break;
+          case 63: break;
           case 5: 
             { lexeme=yytext(); return INTEIRO;
             } 
             // fall through
-          case 68: break;
+          case 64: break;
           case 6: 
             { return LINHA;
             } 
             // fall through
-          case 69: break;
+          case 65: break;
           case 7: 
-            { return DIVISAO;
+            { lexeme=yytext(); return DIVISAO;
+            } 
+            // fall through
+          case 66: break;
+          case 8: 
+            { lexeme=yytext(); return ABRE_PARENTESES;
+            } 
+            // fall through
+          case 67: break;
+          case 9: 
+            { lexeme=yytext(); return FECHA_PARENTESES;
+            } 
+            // fall through
+          case 68: break;
+          case 10: 
+            { lexeme=yytext(); return ASPAS_DUPLAS;
+            } 
+            // fall through
+          case 69: break;
+          case 11: 
+            { lexeme=yytext(); return ASPAS_SIMPLES;
             } 
             // fall through
           case 70: break;
-          case 8: 
-            { return ABRE_PARENTESES;
+          case 12: 
+            { lexeme=yytext(); return PONTO;
             } 
             // fall through
           case 71: break;
-          case 9: 
-            { return FECHA_PARENTESES;
+          case 13: 
+            { lexeme=yytext(); return VIRGULA;
             } 
             // fall through
           case 72: break;
-          case 10: 
-            { return ASPAS_DUPLAS;
+          case 14: 
+            { lexeme=yytext(); return ABRE_CHAVES;
             } 
             // fall through
           case 73: break;
-          case 11: 
-            { return ASPAS_SIMPLES;
+          case 15: 
+            { lexeme=yytext(); return FECHA_CHAVES;
             } 
             // fall through
           case 74: break;
-          case 12: 
-            { return PONTO;
+          case 16: 
+            { lexeme=yytext(); return ABRE_COLCHETE;
             } 
             // fall through
           case 75: break;
-          case 13: 
-            { return VIRGULA;
+          case 17: 
+            { lexeme=yytext(); return FECHA_COLCHETE;
             } 
             // fall through
           case 76: break;
-          case 14: 
-            { return ABRE_CHAVES;
+          case 18: 
+            { lexeme=yytext(); return MAIOR;
             } 
             // fall through
           case 77: break;
-          case 15: 
-            { return FECHA_CHAVES;
+          case 19: 
+            { lexeme=yytext(); return MENOR;
             } 
             // fall through
           case 78: break;
-          case 16: 
-            { return ABRE_COLCHETE;
+          case 20: 
+            { lexeme=yytext(); return ATRIBUICAO;
             } 
             // fall through
           case 79: break;
-          case 17: 
-            { return FECHA_COLCHETE;
+          case 21: 
+            { lexeme=yytext(); return POTENCIA;
             } 
             // fall through
           case 80: break;
-          case 18: 
-            { return MAIOR;
+          case 22: 
+            { lexeme=yytext(); return SOMA;
             } 
             // fall through
           case 81: break;
-          case 19: 
-            { return MENOR;
+          case 23: 
+            { lexeme=yytext(); return MULTIPLICACAO;
             } 
             // fall through
           case 82: break;
-          case 20: 
-            { return ATRIBUICAO;
+          case 24: 
+            { lexeme=yytext(); return SUBTRACAO;
             } 
             // fall through
           case 83: break;
-          case 21: 
-            { return POTENCIA;
+          case 25: 
+            { lexeme=yytext(); return SE;
             } 
             // fall through
           case 84: break;
-          case 22: 
-            { return SOMA;
-            } 
-            // fall through
-          case 85: break;
-          case 23: 
-            { return MULTIPLICACAO;
-            } 
-            // fall through
-          case 86: break;
-          case 24: 
-            { return SUBTRACAO;
-            } 
-            // fall through
-          case 87: break;
-          case 25: 
-            { return SE;
-            } 
-            // fall through
-          case 88: break;
           case 26: 
             { lexeme=yytext(); return ID_INVALIDO;
             } 
             // fall through
-          case 89: break;
+          case 85: break;
           case 27: 
-            { return OU;
+            { lexeme=yytext(); return OU;
+            } 
+            // fall through
+          case 86: break;
+          case 28: 
+            { lexeme=yytext(); return DE;
+            } 
+            // fall through
+          case 87: break;
+          case 29: 
+            { lexeme=yytext(); return MAIOR_IGUAL;
+            } 
+            // fall through
+          case 88: break;
+          case 30: 
+            { lexeme=yytext(); return DIFERENTE;
+            } 
+            // fall through
+          case 89: break;
+          case 31: 
+            { lexeme=yytext(); return MENOR_IGUAL;
             } 
             // fall through
           case 90: break;
-          case 28: 
-            { return DE;
+          case 32: 
+            { lexeme=yytext(); return IGUALDADE;
             } 
             // fall through
           case 91: break;
-          case 29: 
-            { return MAIOR_IGUAL;
+          case 33: 
+            { lexeme=yytext(); return RESTO_DIVISAO;
             } 
             // fall through
           case 92: break;
-          case 30: 
-            { return DIFERENTE;
+          case 34: 
+            { lexeme=yytext(); return FIM;
             } 
             // fall through
           case 93: break;
-          case 31: 
-            { return MENOR_IGUAL;
+          case 35: 
+            { lexeme=yytext(); return ATE;
             } 
             // fall through
           case 94: break;
-          case 32: 
-            { return IGUALDADE;
-            } 
-            // fall through
-          case 95: break;
-          case 33: 
-            { return RESTO_DIVISAO;
-            } 
-            // fall through
-          case 96: break;
-          case 34: 
-            { return FIM;
-            } 
-            // fall through
-          case 97: break;
-          case 35: 
-            { return ATE;
-            } 
-            // fall through
-          case 98: break;
           case 36: 
             { lexeme=yytext(); return REAL;
             } 
             // fall through
-          case 99: break;
+          case 95: break;
           case 37: 
-            { return NAO;
+            { lexeme=yytext(); return NAO;
             } 
             // fall through
-          case 100: break;
+          case 96: break;
           case 38: 
-            { return VAR;
+            { lexeme=yytext(); return VAR;
             } 
             // fall through
-          case 101: break;
+          case 97: break;
           case 39: 
             { lexeme=yytext(); return PALAVRA;
             } 
             // fall through
-          case 102: break;
+          case 98: break;
           case 40: 
             { lexeme=yytext(); return CARACTERE;
             } 
             // fall through
-          case 103: break;
+          case 99: break;
           case 41: 
-            { return REAL;
+            { lexeme=yytext(); return FACA;
+            } 
+            // fall through
+          case 100: break;
+          case 42: 
+            { lexeme=yytext(); return LEIA;
+            } 
+            // fall through
+          case 101: break;
+          case 43: 
+            { lexeme=yytext(); return PARA;
+            } 
+            // fall through
+          case 102: break;
+          case 44: 
+            { lexeme=yytext(); return ENTAO;
+            } 
+            // fall through
+          case 103: break;
+          case 45: 
+            { lexeme=yytext(); return SENAO;
             } 
             // fall through
           case 104: break;
-          case 42: 
-            { return FACA;
+          case 46: 
+            { lexeme=yytext(); return BIB_IO;
             } 
             // fall through
           case 105: break;
-          case 43: 
-            { return LEIA;
+          case 47: 
+            { lexeme=yytext(); return CONST;
             } 
             // fall through
           case 106: break;
-          case 44: 
-            { return PARA;
+          case 48: 
+            { lexeme=yytext(); return REPITA;
             } 
             // fall through
           case 107: break;
-          case 45: 
-            { return ENTAO;
+          case 49: 
+            { lexeme=yytext(); return FUNCAO;
             } 
             // fall through
           case 108: break;
-          case 46: 
-            { return SENAO;
+          case 50: 
+            { lexeme=yytext(); return LEIA_LN;
             } 
             // fall through
           case 109: break;
-          case 47: 
-            { return BIB_IO;
+          case 51: 
+            { lexeme=yytext(); return LOGICO;
             } 
             // fall through
           case 110: break;
-          case 48: 
-            { return CONST;
+          case 52: 
+            { lexeme=yytext(); return INICIO;
             } 
             // fall through
           case 111: break;
-          case 49: 
-            { return REPITA;
+          case 53: 
+            { lexeme=yytext(); return UTILIZE;
             } 
             // fall through
           case 112: break;
-          case 50: 
-            { return FUNCAO;
+          case 54: 
+            { lexeme=yytext(); return ESCREVA;
             } 
             // fall through
           case 113: break;
-          case 51: 
-            { return LEIA_LN;
+          case 55: 
+            { lexeme=yytext(); return ARRANJO;
             } 
             // fall through
           case 114: break;
-          case 52: 
-            { return LOGICO;
+          case 56: 
+            { lexeme=yytext(); return ENQUANTO;
             } 
             // fall through
           case 115: break;
-          case 53: 
-            { return INICIO;
+          case 57: 
+            { lexeme=yytext(); return PROGRAMA;
             } 
             // fall through
           case 116: break;
-          case 54: 
-            { return UTILIZE;
+          case 58: 
+            { lexeme=yytext(); return ESCREVA_LN;
             } 
             // fall through
           case 117: break;
-          case 55: 
-            { return ESCREVA;
+          case 59: 
+            { lexeme=yytext(); return PROCEDIMENTO;
             } 
             // fall through
           case 118: break;
-          case 56: 
-            { return ARRANJO;
-            } 
-            // fall through
-          case 119: break;
-          case 57: 
-            { return PALAVRA;
-            } 
-            // fall through
-          case 120: break;
-          case 58: 
-            { return INTEIRO;
-            } 
-            // fall through
-          case 121: break;
-          case 59: 
-            { return ENQUANTO;
-            } 
-            // fall through
-          case 122: break;
-          case 60: 
-            { return PROGRAMA;
-            } 
-            // fall through
-          case 123: break;
-          case 61: 
-            { return ESCREVA_LN;
-            } 
-            // fall through
-          case 124: break;
-          case 62: 
-            { return CARACTERE;
-            } 
-            // fall through
-          case 125: break;
-          case 63: 
-            { return PROCEDIMENTO;
-            } 
-            // fall through
-          case 126: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
