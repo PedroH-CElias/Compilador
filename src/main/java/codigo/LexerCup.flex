@@ -9,7 +9,7 @@ import java_cup.runtime.Symbol;
 %char
 L=[a-zA-Z_]+
 D=[0-9]+
-espacio=[ ,\t,\r,\n]+
+espaco=[ ,\t,\r,\n]+
 %{
     private Symbol symbol(int type, Object value){
         return new Symbol(type, yyline, yycolumn, value);
@@ -21,97 +21,91 @@ espacio=[ ,\t,\r,\n]+
 %%
 
 /* Espacios en blanco */
-{espacio} {/*Ignore*/}
+{espaco} {/*Ignore*/}
 
 /* Comentarios */
 ( "//"(.)* ) {/*Ignore*/}
 
-/* Comillas */
-( "\"" ) {return new Symbol(sym.Comillas, yychar, yyline, yytext());}
+/* Aspas duplas */
+( "\"" ) {return new Symbol(sym.ASPAS_DUPLAS, yychar, yyline, yytext());}
 
-/* Tipos de datos */
-( byte | char | long | float | double ) {return new Symbol(sym.T_dato, yychar, yyline, yytext());}
+/* Tipos de dados */
+( inteiro | caractere | real | palavra ) {return new Symbol(sym.TIPO_DADO, yychar, yyline, yytext());}
 
-/* Tipo de dato Int (Para el main) */
-( "int" ) {return new Symbol(sym.Int, yychar, yyline, yytext());}
+/* Tipo de dado Inteiro (Para el main) */
+( "inteiro" ) {return new Symbol(sym.INTEIRO, yychar, yyline, yytext());}
 
-/* Tipo de dato String */
-( String ) {return new Symbol(sym.Cadena, yychar, yyline, yytext());}
+/* Tipo de dado String */
+( palavra ) {return new Symbol(sym.PALAVRA, yychar, yyline, yytext());}
 
-/* Palabra reservada If */
-( if ) {return new Symbol(sym.If, yychar, yyline, yytext());}
+/* palavra reservada se */
+( se ) {return new Symbol(sym.SE, yychar, yyline, yytext());}
 
-/* Palabra reservada Else */
-( else ) {return new Symbol(sym.Else, yychar, yyline, yytext());}
-
-/* Palabra reservada Do */
-( do ) {return new Symbol(sym.Do, yychar, yyline, yytext());}
+/* palavra reservada senao */
+( senao ) {return new Symbol(sym.SENAO, yychar, yyline, yytext());}
 
 /* Palabra reservada While */
-( while ) {return new Symbol(sym.While, yychar, yyline, yytext());}
+( enquanto ) {return new Symbol(sym.ENQUANTO, yychar, yyline, yytext());}
 
-/* Palabra reservada For */
-( for ) {return new Symbol(sym.For, yychar, yyline, yytext());}
+/* Palabra reservada repita */
+( repita ) {return new Symbol(sym.REPITA, yychar, yyline, yytext());}
 
 /* Operador Igual */
-( "=" ) {return new Symbol(sym.Igual, yychar, yyline, yytext());}
+( "=" ) {return new Symbol(sym.ATRIBUICAO, yychar, yyline, yytext());}
 
-/* Operador Suma */
-( "+" ) {return new Symbol(sym.Suma, yychar, yyline, yytext());}
+/* Operador soma */
+( "+" ) {return new Symbol(sym.SOMA, yychar, yyline, yytext());}
 
-/* Operador Resta */
-( "-" ) {return new Symbol(sym.Resta, yychar, yyline, yytext());}
+/* Operador Subtracao */
+( "-" ) {return new Symbol(sym.SUBTRACAO, yychar, yyline, yytext());}
 
-/* Operador Multiplicacion */
-( "*" ) {return new Symbol(sym.Multiplicacion, yychar, yyline, yytext());}
+/* Operador Multiplicacao */
+( "*" ) {return new Symbol(sym.MULTIPLICACAO, yychar, yyline, yytext());}
 
-/* Operador Division */
-( "/" ) {return new Symbol(sym.Division, yychar, yyline, yytext());}
+/* Operador Divisao */
+( "/" ) {return new Symbol(sym.DIVISAO, yychar, yyline, yytext());}
 
 /* Operadores logicos */
-( "&&" | "||" | "!" | "&" | "|" ) {return new Symbol(sym.Op_logico, yychar, yyline, yytext());}
+( "ou" | "e" | "nao" ) {return new Symbol(sym.OPERADORES_LOGICOS, yychar, yyline, yytext());}
 
 /*Operadores Relacionales */
-( ">" | "<" | "==" | "!=" | ">=" | "<=" | "<<" | ">>" ) {return new Symbol(sym.Op_relacional, yychar, yyline, yytext());}
+( "<>" | "<" | ">" | "==" | ">=" | "<=" ) {return new Symbol(sym.OPERADORES_RELACIONAIS, yychar, yyline, yytext());}
 
-/* Operadores Atribucion */
-( "+=" | "-="  | "*=" | "/=" | "%=" | "=" ) {return new Symbol(sym.Op_atribucion, yychar, yyline, yytext());}
-
-/* Operadores Incremento y decremento */
-( "++" | "--" ) {return new Symbol(sym.Op_incremento, yychar, yyline, yytext());}
+/* Operadores Atribuicao */
+( "=" ) {return new Symbol(sym.OPERADORES_ATRIBUICAO, yychar, yyline, yytext());}
 
 /*Operadores Booleanos*/
-( true | false ) {return new Symbol(sym.Op_booleano, yychar, yyline, yytext());}
+( verdadeiro | falso ) {return new Symbol(sym.LOGICO, yychar, yyline, yytext());}
 
 /* Parentesis de apertura */
-( "(" ) {return new Symbol(sym.Parentesis_a, yychar, yyline, yytext());}
+( "(" ) {return new Symbol(sym.ABRE_PARENTESES, yychar, yyline, yytext());}
 
 /* Parentesis de cierre */
-( ")" ) {return new Symbol(sym.Parentesis_c, yychar, yyline, yytext());}
+( ")" ) {return new Symbol(sym.FECHA_PARENTESES, yychar, yyline, yytext());}
 
 /* Llave de apertura */
-( "{" ) {return new Symbol(sym.Llave_a, yychar, yyline, yytext());}
+( "{" ) {return new Symbol(sym.ABRE_CHAVES, yychar, yyline, yytext());}
 
 /* Llave de cierre */
-( "}" ) {return new Symbol(sym.Llave_c, yychar, yyline, yytext());}
+( "}" ) {return new Symbol(sym.FECHA_CHAVES, yychar, yyline, yytext());}
 
 /* Corchete de apertura */
-( "[" ) {return new Symbol(sym.Corchete_a, yychar, yyline, yytext());}
+( "[" ) {return new Symbol(sym.ABRE_COLCHETES, yychar, yyline, yytext());}
 
 /* Corchete de cierre */
-( "]" ) {return new Symbol(sym.Corchete_c, yychar, yyline, yytext());}
+( "]" ) {return new Symbol(sym.FECHA_COLCHETES, yychar, yyline, yytext());}
 
 /* Marcador de inicio de algoritmo */
-( "main" ) {return new Symbol(sym.Main, yychar, yyline, yytext());}
+( "programa" ) {return new Symbol(sym.PROGRAMA, yychar, yyline, yytext());}
 
 /* Punto y coma */
-( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
+( ";" ) {return new Symbol(sym.PONTO_VIRGULA, yychar, yyline, yytext());}
 
 /* Identificador */
-{L}({L}|{D})* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}
+{L}({L}|{D})* {return new Symbol(sym.ID, yychar, yyline, yytext());}
 
 /* Numero */
-("(-"{D}+")")|{D}+ {return new Symbol(sym.Numero, yychar, yyline, yytext());}
+("(-"{D}+")")|{D}+ {return new Symbol(sym.NUMERO, yychar, yyline, yytext());}
 
 /* Error de analisis */
- . {return new Symbol(sym.ERROR, yychar, yyline, yytext());}
+ . {return new Symbol(sym.ERRO, yychar, yyline, yytext());}

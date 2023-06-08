@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import java_cup.runtime.Symbol;
 import javax.swing.JFileChooser;
 
-import static codigo.sym.Linea;
+import static codigo.sym.LINHA;
 
 /**
  *

@@ -6,7 +6,7 @@ import static codigo.Token.*;
 %type Token
 
 BRANCO = [ |\t|\r]*
-BOOLEAN = "true" | "false"
+BOOLEAN = "verdadeiro" | "falso"
 CARACTERE = [a-zA-Z]+
 NUMERO = [0-9]+
 
@@ -73,6 +73,7 @@ NUMERO = [0-9]+
 "*" {lexeme=yytext(); return MULTIPLICACAO;}
 "-" {lexeme=yytext(); return SUBTRACAO;}
 "/" {lexeme=yytext(); return DIVISAO;}
+";" {lexeme=yytext(); return PONTO_VIRGULA;}
 
 [+-]?|{NUMERO}+{CARACTERE}+ {lexeme=yytext(); return ID_INVALIDO;}
 {CARACTERE}({CARACTERE}|{NUMERO})* {lexeme=yytext(); return ID;}
@@ -82,5 +83,6 @@ NUMERO = [0-9]+
 {CARACTERE}({CARACTERE}|{NUMERO})* {lexeme=yytext(); return ID;}
 [+-]?|{NUMERO}+"."{NUMERO}+ {lexeme=yytext(); return REAL;}
 [+-]?|{NUMERO}+ {lexeme=yytext(); return INTEIRO;}
+{BOOLEAN} {lexeme=yytext(); return LOGICO;}
 
 .  {lexeme=yytext(); return ERRO;}
