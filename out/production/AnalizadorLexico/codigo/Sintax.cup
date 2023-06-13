@@ -1,0 +1,152 @@
+package codigo;
+
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+}
+:};
+
+terminal bibIO, pv, utilize, ini, fim, pf, programa, inteiro, real, constante, var, tipo_dado, dois_pontos,
+    virgula, funcao, procedimento, atribuicao, Linea, Comillas, T_dato, Int, Cadena, If, Else, Do, While, For,
+    Igual, Suma, Resta, Multiplicacion, Division, Op_logico, Op_relacional, Inteiro, Real,
+    Op_atribucion, Op_incremento, Op_booleano, Parentesis_a, Parentesis_c,
+    Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, id,
+    Numero, ERROR;
+non terminal INICIO, BIBLIOTECA, VALOR, OPCIONAL, NUMERO, GERACONST, LISTAID, DECLARACAO, DECLARACAO_AUX, SUBROTINA,
+    TIPO_DADO, PARAMETRO, COMANDO, FUNCAO, PROCEDIMENTO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, TESTE, DECLARANAFUNCAO, SENTENCIA_FOR;
+
+start with INICIO;
+
+INICIO ::= 
+    programa id pv BIBLIOTECA | TESTE
+;
+
+BIBLIOTECA ::=
+    utilize bibIO pv OPCIONAL ini pv fim pf
+;
+
+OPCIONAL ::=
+    GERACONST  | var DECLARACAO |  SUBROTINA |
+;
+
+GERACONST ::=
+    constante id NUMERO pv OPCIONAL
+;
+
+NUMERO ::=
+    inteiro | real
+;
+
+TIPO_DADO ::=
+    Inteiro | Real
+;
+
+VALOR ::=
+    NUMERO
+;
+
+DECLARACAO_AUX ::=
+    pv DECLARACAO | pv OPCIONAL
+;
+
+DECLARACAO ::=
+    id dois_pontos TIPO_DADO DECLARACAO_AUX | LISTAID dois_pontos TIPO_DADO DECLARACAO_AUX |
+    id atribuicao VALOR dois_pontos TIPO_DADO DECLARACAO_AUX |
+    LISTAID atribuicao VALOR dois_pontos TIPO_DADO DECLARACAO_AUX
+;
+
+PARAMETRO ::=
+    id dois_pontos TIPO_DADO | id dois_pontos TIPO_DADO pv PARAMETRO | 
+;
+
+COMANDO ::=
+    pv
+;
+
+SUBROTINA ::=
+    FUNCAO OPCIONAL | PROCEDIMENTO OPCIONAL
+;
+
+FUNCAO ::=
+    funcao id Parentesis_a PARAMETRO Parentesis_c dois_pontos TIPO_DADO pv DECLARANAFUNCAO ini COMANDO fim pv
+;
+
+DECLARANAFUNCAO ::=
+    var id dois_pontos TIPO_DADO pv DECLARANAFUNCAO | 
+;
+
+PROCEDIMENTO ::=
+    procedimento id Parentesis_a PARAMETRO Parentesis_c pv DECLARANAFUNCAO ini COMANDO fim pv
+;
+
+TESTE ::=
+    PROCEDIMENTO
+;
+/*************************************************************************/
+/*SENTENCIA ::= 
+    SENTENCIA DECLARACION |
+    DECLARACION |
+    SENTENCIA IF | 
+    IF |
+    SENTENCIA IF_ELSE |
+    IF_ELSE |
+    SENTENCIA WHILE |
+    WHILE |
+    SENTENCIA DO_WHILE
+    DO_WHILE |
+    SENTENCIA FOR |
+    FOR
+;
+DECLARACION ::= 
+    Int Identificador P_coma | 
+    Int Identificador Op_atribucion Numero P_coma |
+    Int Identificador Igual Numero P_coma |
+    Int Identificador Op_incremento P_coma | 
+    Int Op_incremento Identificador P_coma | 
+    T_dato Identificador P_coma | 
+    T_dato Identificador Op_atribucion Numero P_coma |
+    T_dato Identificador Igual Numero P_coma |
+    T_dato Identificador Op_incremento P_coma | 
+    T_dato Op_incremento Identificador P_coma | 
+    Cadena Identificador Op_atribucion Comillas Comillas P_coma |
+    Cadena Identificador Igual Comillas Comillas P_coma |
+    Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
+    Cadena Identificador Igual Comillas Identificador Comillas P_coma
+;
+IF ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
+;
+SENTENCIA_BOOLEANA ::= 
+    Op_booleano | 
+    Identificador Op_relacional Op_booleano |
+    Identificador Op_relacional Numero |
+    Identificador Op_relacional Identificador |
+    Identificador Op_relacional Comillas Comillas |
+    Identificador Op_relacional Comillas Identificador Comillas
+;
+IF_ELSE ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c Else Llave_a SENTENCIA Llave_c
+;
+WHILE ::= While Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
+;
+DO_WHILE ::= Do Llave_a SENTENCIA Llave_c While Parentesis_a SENTENCIA_BOOLEANA Parentesis_c P_coma
+;
+FOR ::= For Parentesis_a SENTENCIA_FOR Parentesis_c Llave_a SENTENCIA Llave_c
+;
+SENTENCIA_FOR ::=
+    T_dato Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR |
+    Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR
+;
+DECLARACION_FOR ::= 
+    Identificador Op_atribucion Numero |
+    Identificador Op_incremento | 
+    Op_incremento Identificador
+;*/
